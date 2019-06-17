@@ -46,7 +46,7 @@ public class OptionalTest {
         System.out.println(optional.get());
         try {
             optional = Optional.of(null);
-            System.out.println("null值--"+optional.get());  //get方法是获取optional的值 类型取决于声明的时候
+            System.out.println("null值--" + optional.get());  //get方法是获取optional的值 类型取决于声明的时候
         } catch (NullPointerException e) {
             System.out.println("空指针异常");
         }
@@ -60,7 +60,7 @@ public class OptionalTest {
         System.out.println(optional.get());
         try {
             optional = Optional.ofNullable(null);
-            System.out.println("null值---"+optional.get());
+            System.out.println("null值---" + optional.get());
         } catch (NoSuchElementException e) {
             System.out.println("NoSuchElementException 异常");
         }

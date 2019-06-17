@@ -65,8 +65,8 @@ public class ExportExcelUtil {
      * @param colMap   列名map
      * @param downMap  有下拉框的列map
      */
-    public static void  createExcelTemplate(HttpServletResponse response, Map<String, Object> colMap,
-                                            Map<Integer, List<String>> downMap) {
+    public static void createExcelTemplate(HttpServletResponse response, Map<String, Object> colMap,
+                                           Map<Integer, List<String>> downMap) {
 
         //创建工作薄
         Workbook wb = new XSSFWorkbook();
@@ -88,7 +88,7 @@ public class ExportExcelUtil {
             cellStyle1.setWrapText(true);
             cellStyle1.setAlignment(HorizontalAlignment.CENTER);
             cellStyle1.setVerticalAlignment(VerticalAlignment.CENTER);
-            Font font =  wb.createFont();
+            Font font = wb.createFont();
             font.setColor(HSSFColor.HSSFColorPredefined.RED.getIndex());
             cellStyle1.setFont(font);
 

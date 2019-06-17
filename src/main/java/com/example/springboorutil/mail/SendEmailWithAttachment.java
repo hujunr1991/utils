@@ -23,18 +23,13 @@ import java.security.GeneralSecurityException;
 import java.util.Properties;
 
 /**
- * 
-
  * @ClassName: SendEmailWithAttachment
-
  * @Description: Email发送附件 [如果需要发送附件，就需要用到Multipart对象]
-
  * @author: Mr.Yang
-
  * @date: 2017年8月28日 下午4:49:35
  */
 public class SendEmailWithAttachment {
-	private MimeMessage message;
+    private MimeMessage message;
     private Session session;
     private Transport transport;
 
@@ -43,7 +38,7 @@ public class SendEmailWithAttachment {
     private String sender_password = "";
 
     private Properties properties = new Properties();
-    
+
     /*
      * 初始化方法
      */
@@ -54,35 +49,31 @@ public class SendEmailWithAttachment {
             this.mailHost = properties.getProperty("mail.smtp.host");
             this.sender_username = properties.getProperty("mail.sender.username");
             this.sender_password = properties.getProperty("mail.sender.password");
-            
+
             // 开启SSL加密，否则会失败
-    		MailSSLSocketFactory sf = new MailSSLSocketFactory();
-    		sf.setTrustAllHosts(true);
-    		properties.put("mail.smtp.ssl.enable", "true");
-    		properties.put("mail.smtp.ssl.socketFactory", sf);
-            
+            MailSSLSocketFactory sf = new MailSSLSocketFactory();
+            sf.setTrustAllHosts(true);
+            properties.put("mail.smtp.ssl.enable", "true");
+            properties.put("mail.smtp.ssl.socketFactory", sf);
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (GeneralSecurityException e) {
-			e.printStackTrace();
-		}
+            e.printStackTrace();
+        }
 
         session = Session.getInstance(properties);
         session.setDebug(debug);// 开启后有调试信息
         message = new MimeMessage(session);
     }
-    
+
     /**
      * 发送邮件
-     * 
-     * @param subject
-     *            邮件主题
-     * @param sendHtml
-     *            邮件内容
-     * @param receiveUser
-     *            收件人地址
-     * @param attachment
-     *            附件
+     *
+     * @param subject     邮件主题
+     * @param sendHtml    邮件内容
+     * @param receiveUser 收件人地址
+     * @param attachment  附件
      */
     public void doSendHtmlEmail(String subject, String sendHtml, String[] receiveUsers, File attachment) {
         try {
@@ -95,28 +86,28 @@ public class SendEmailWithAttachment {
 
             // 向multipart对象中添加邮件的各个部分内容，包括文本内容和附件
             Multipart multipart = new MimeMultipart();
-            
+
             // 添加邮件正文
             BodyPart contentPart = new MimeBodyPart();
             contentPart.setContent(sendHtml, "text/html;charset=UTF-8");
             multipart.addBodyPart(contentPart);
-            
+
             // 添加附件的内容
             if (attachment != null) {
                 BodyPart attachmentBodyPart = new MimeBodyPart();
                 DataSource source = new FileDataSource(attachment);
                 attachmentBodyPart.setDataHandler(new DataHandler(source));
-                
+
                 // 网上流传的解决文件名乱码的方法，其实用MimeUtility.encodeWord就可以很方便的搞定
                 // 这里很重要，通过下面的Base64编码的转换可以保证你的中文附件标题名在发送时不会变成乱码
                 //sun.misc.BASE64Encoder enc = new sun.misc.BASE64Encoder();
                 //messageBodyPart.setFileName("=?GBK?B?" + enc.encode(attachment.getName().getBytes()) + "?=");
-                
+
                 //MimeUtility.encodeWord可以避免文件名乱码
                 attachmentBodyPart.setFileName(MimeUtility.encodeWord(attachment.getName()));
                 multipart.addBodyPart(attachmentBodyPart);
             }
-            
+
             // 将multipart对象放到message中
             message.setContent(multipart);
             // 保存邮件
@@ -141,32 +132,28 @@ public class SendEmailWithAttachment {
             }
         }
     }
-    
+
     /**
-    
-     * @Title: getAddress
-    
-     * @Description: 遍历收件人信息
-    
      * @param emilAddress
      * @return
      * @throws Exception
-    
+     * @Title: getAddress
+     * @Description: 遍历收件人信息
      * @return: Address[]
      */
     private static Address[] getAddress(String[] emilAddress) throws Exception {
-		Address[] address = new Address[emilAddress.length];
-		for (int i = 0; i < address.length; i++) {
-			address[i] = new InternetAddress(emilAddress[i]);
-		}
-		return address;
-	}
-    
-    
+        Address[] address = new Address[emilAddress.length];
+        for (int i = 0; i < address.length; i++) {
+            address[i] = new InternetAddress(emilAddress[i]);
+        }
+        return address;
+    }
+
+
     public static void main(String[] args) {
-    	SendEmailWithAttachment se = new SendEmailWithAttachment(true);
+        SendEmailWithAttachment se = new SendEmailWithAttachment(true);
         File attached = new File("D:\\workspace\\ws-java-base\\commonUtils\\pom.xml");
         se.doSendHtmlEmail("邮件主题带有附件", "邮件内容", new String[]{"yswcomeon@gmail.com"}, attached);
     }
-    
+
 }

@@ -12,62 +12,57 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 /**
- * 
- * 
  * @ClassName: ZipWholeDirAndSubsDir
- * 
  * @Description: Using the walk file tree feature of Java NIO,
- * 
- *               you can write a program that compresses a whole directory
- *               (including sub files and sub directories) with ease
- * 
+ * <p>
+ * you can write a program that compresses a whole directory
+ * (including sub files and sub directories) with ease
  * @author: Mr.Yang
- * 
  * @date: 2017年9月7日 下午8:36:18
  */
 public class ZipWholeDirAndSubsDir extends SimpleFileVisitor<Path> {
 
-	private static ZipOutputStream zos;
+    private static ZipOutputStream zos;
 
-	private Path sourceDir;
+    private Path sourceDir;
 
-	public ZipWholeDirAndSubsDir(Path sourceDir) {
-		this.sourceDir = sourceDir;
-	}
+    public ZipWholeDirAndSubsDir(Path sourceDir) {
+        this.sourceDir = sourceDir;
+    }
 
-	@Override
-	public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
+    @Override
+    public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
 
-		try {
-			Path targetFile = sourceDir.relativize(file);
+        try {
+            Path targetFile = sourceDir.relativize(file);
 
-			zos.putNextEntry(new ZipEntry(targetFile.toString()));
+            zos.putNextEntry(new ZipEntry(targetFile.toString()));
 
-			byte[] bytes = Files.readAllBytes(file);
-			zos.write(bytes, 0, bytes.length);
-			zos.closeEntry();
+            byte[] bytes = Files.readAllBytes(file);
+            zos.write(bytes, 0, bytes.length);
+            zos.closeEntry();
 
-		} catch (IOException ex) {
-			System.err.println(ex);
-		}
+        } catch (IOException ex) {
+            System.err.println(ex);
+        }
 
-		return FileVisitResult.CONTINUE;
-	}
+        return FileVisitResult.CONTINUE;
+    }
 
-	public static void main(String[] args) {
-		String dirPath = "H:/Sessions";
-		Path sourceDir = Paths.get(dirPath);
+    public static void main(String[] args) {
+        String dirPath = "H:/Sessions";
+        Path sourceDir = Paths.get(dirPath);
 
-		try {
-			String zipFileName = dirPath.concat(".zip");
-			zos = new ZipOutputStream(new FileOutputStream(zipFileName));
+        try {
+            String zipFileName = dirPath.concat(".zip");
+            zos = new ZipOutputStream(new FileOutputStream(zipFileName));
 
-			Files.walkFileTree(sourceDir, new ZipWholeDirAndSubsDir(sourceDir));
+            Files.walkFileTree(sourceDir, new ZipWholeDirAndSubsDir(sourceDir));
 
-			zos.close();
-		} catch (IOException ex) {
-			System.err.println("I/O Error: " + ex);
-		}
-	}
+            zos.close();
+        } catch (IOException ex) {
+            System.err.println("I/O Error: " + ex);
+        }
+    }
 
 }

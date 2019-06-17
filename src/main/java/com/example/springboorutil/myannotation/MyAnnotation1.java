@@ -10,8 +10,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Documented
-@Target({ElementType.FIELD,ElementType.METHOD})
-public @interface MyAnnotation1{
+@Target({ElementType.FIELD, ElementType.METHOD})
+public @interface MyAnnotation1 {
     public String name() default "hello";
 }
 

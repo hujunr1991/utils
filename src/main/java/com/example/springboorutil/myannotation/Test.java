@@ -14,7 +14,7 @@ package com.example.springboorutil.myannotation;
 @MyAnnotation
 public class Test {
     @MyAnnotation(name = "qqq", age = 22)
-    public static void getNameAndAge(){
+    public static void getNameAndAge() {
 
     }
 

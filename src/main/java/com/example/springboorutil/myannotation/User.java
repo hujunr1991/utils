@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
  * @date 2019/05/13 11:43
  * @since 1.0
  */
-public class User{
+public class User {
 
     @MyAnno(name = "zhang")
     private String name;
@@ -24,7 +24,7 @@ public class User{
 
 
     @MyAnno(name = "sayHelloWorld")
-    public String sayHello(){
+    public String sayHello() {
         return "";
     }
 
@@ -45,14 +45,14 @@ public class User{
 
         for (Field field : fields) {
             MyAnno annotation = field.getAnnotation(MyAnno.class);
-            if(annotation!=null){
-                System.out.println("property="+annotation.name());
+            if (annotation != null) {
+                System.out.println("property=" + annotation.name());
             }
         }
         for (Method method : methods) {
             MyAnno annotation = method.getAnnotation(MyAnno.class);
-            if(annotation!=null){
-                System.out.println("sayHello="+annotation.name());
+            if (annotation != null) {
+                System.out.println("sayHello=" + annotation.name());
             }
         }
     }

@@ -9,7 +9,8 @@ import org.apache.commons.collections4.ListUtils;
 
 import java.util.List;
 
-/**说
+/**
+ * 说
  * description
  *
  * @author hujun [KF.hujunA@h3c.com]
@@ -19,7 +20,7 @@ import java.util.List;
 public class ListsPartitionTest2 {
     public static void main(String[] args) {
         //ListUtils.partition的作用是将数组分段
-        List<Integer> intList = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8,0,1);
+        List<Integer> intList = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8, 0, 1);
         System.out.println(ListUtils.partition(intList, 3));
 
     }

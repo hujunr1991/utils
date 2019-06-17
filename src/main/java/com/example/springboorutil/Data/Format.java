@@ -27,17 +27,17 @@ public class Format {
         System.out.println("格式化结果1：" + time);
 
         System.out.println("=============================================");
-        SimpleDateFormat aDate=new SimpleDateFormat("yyyy-mm-dd  HH:mm:ss");
-        SimpleDateFormat bDate=new SimpleDateFormat("yyyy-mmmmmm-dddddd");
-        long now=System.currentTimeMillis();
+        SimpleDateFormat aDate = new SimpleDateFormat("yyyy-mm-dd  HH:mm:ss");
+        SimpleDateFormat bDate = new SimpleDateFormat("yyyy-mmmmmm-dddddd");
+        long now = System.currentTimeMillis();
         System.out.println(aDate.format(now));
         System.out.println(bDate.format(now));
 
-        SimpleDateFormat myFmt=new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
-        SimpleDateFormat myFmt1=new SimpleDateFormat("yy/MM/dd HH:mm");
-        SimpleDateFormat myFmt2=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//等价于now.toLocaleString()
-        SimpleDateFormat myFmt3=new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒 E ");
-        SimpleDateFormat myFmt4=new SimpleDateFormat(
+        SimpleDateFormat myFmt = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");
+        SimpleDateFormat myFmt1 = new SimpleDateFormat("yy/MM/dd HH:mm");
+        SimpleDateFormat myFmt2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//等价于now.toLocaleString()
+        SimpleDateFormat myFmt3 = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒 E ");
+        SimpleDateFormat myFmt4 = new SimpleDateFormat(
                 "一年中的第 D 天 一年中第w个星期 一月中第W个星期 在一天中k时 z时区");
         System.out.println(myFmt.format(now));
         System.out.println(myFmt1.format(now));

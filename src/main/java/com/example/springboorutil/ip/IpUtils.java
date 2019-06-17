@@ -14,23 +14,25 @@ import java.util.Enumeration;
  * ip工具类
  *
  * @author hujun [hu.jun@unisinsight.com]
- * @date   2019/5/8 19:05
- * @since  1.0
+ * @date 2019/5/8 19:05
+ * @since 1.0
  */
 public final class IpUtils {
 
     /**
      * 日志
      */
-    private static final Logger logger = LoggerFactory.getLogger( IpUtils.class );
+    private static final Logger logger = LoggerFactory.getLogger(IpUtils.class);
 
     /**
      * 私有构造函数
      */
-    private IpUtils() { }
+    private IpUtils() {
+    }
 
     /**
      * 获取Windows本地IP
+     *
      * @return ip
      */
     public static String getWindowsLocalIP() {
@@ -41,7 +43,7 @@ public final class IpUtils {
             logger.error("获取Windows本地IP失败: ", e);
         }
         //获取本机ip
-        if(addr != null) {
+        if (addr != null) {
             return addr.getHostAddress();
         }
         return null;
@@ -67,7 +69,7 @@ public final class IpUtils {
     private static String getLinuxLocalIp() {
         String ip = "";
         try {
-            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements();) {
+            for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
                 NetworkInterface intf = en.nextElement();
                 String name = intf.getName();
                 if (!name.contains("docker") && !name.contains("lo")) {
@@ -81,7 +83,7 @@ public final class IpUtils {
     }
 
     private static String getIPAddress(NetworkInterface intf) {
-        for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements();) {
+        for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
             InetAddress inetAddress = enumIpAddr.nextElement();
             if (!inetAddress.isLoopbackAddress()) {
                 String ipaddress = inetAddress.getHostAddress();
@@ -95,6 +97,7 @@ public final class IpUtils {
 
     /**
      * 静态资源加绝对路径
+     *
      * @param relativeUri 绝对路径
      * @return ip
      */

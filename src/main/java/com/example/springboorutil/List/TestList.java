@@ -10,7 +10,8 @@ import java.util.stream.Collectors;
 
 /**
  * description
- *使用filter过滤出符合特定条件的元素List
+ * 使用filter过滤出符合特定条件的元素List
+ *
  * @author hujun [hu.jun@unisinsight.com]
  * @date 2019/05/08 11:44
  * @since 1.0
@@ -18,13 +19,14 @@ import java.util.stream.Collectors;
 public class TestList {
     /**
      * 准备书的列表数据
+     *
      * @return
      */
     public static List<Book> prepareData() {
         // 准备书的列表，id是从1到10
         List<Book> bookList = new ArrayList<Book>();
         for (int i = 1; i < 11; i++) {
-            bookList.add(new Book(String.valueOf(i), "book"+i));
+            bookList.add(new Book(String.valueOf(i), "book" + i));
         }
         return bookList;
     }

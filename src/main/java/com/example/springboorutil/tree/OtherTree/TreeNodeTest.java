@@ -17,29 +17,29 @@ import java.util.List;
  */
 public class TreeNodeTest {
     public static void main(String args[]) {
-        List<TreeNode> menuList=new ArrayList<TreeNode>();
-        TreeNode mu=new TreeNode();
+        List<TreeNode> menuList = new ArrayList<TreeNode>();
+        TreeNode mu = new TreeNode();
         mu.setId("1");
 
-        TreeNode mu1=new TreeNode();
+        TreeNode mu1 = new TreeNode();
         mu1.setId("2");
 
-        TreeNode mu2=new TreeNode();
+        TreeNode mu2 = new TreeNode();
         mu2.setId("3");
 
-        TreeNode mu3=new TreeNode();
+        TreeNode mu3 = new TreeNode();
         mu3.setId("4");
 
-        TreeNode mu4=new TreeNode();
+        TreeNode mu4 = new TreeNode();
         mu4.setId("5");
 
-        TreeNode mu5=new TreeNode();
+        TreeNode mu5 = new TreeNode();
         mu5.setId("6");
 
-        TreeNode mu6=new TreeNode();
+        TreeNode mu6 = new TreeNode();
         mu6.setId("7");
 
-        TreeNode mu7=new TreeNode();
+        TreeNode mu7 = new TreeNode();
         mu7.setId("8");
 
         menuList.add(mu);
@@ -90,28 +90,26 @@ public class TreeNodeTest {
      * @param nodeMap
      * @param tollgateChannelNodeList
      * @param root
-     * @return
-
-    private TreeNode buildTreeNode(List<TreeNode> resTreeNodes, Map<String, TreeNode> nodeMap,
-                                           List<TreeNode> tollgateChannelNodeList, TreeNode root) {
-        for (TreeNode resTreeNode : resTreeNodes) {
-            if (CheckUtil.isNullOrEmpty(resTreeNode.getOrgCode())) {
-                root = resTreeNode;
-                continue;
-            }
-            if (resTreeNode.getNodeType() == CHANNEL_TREE_NODE_TYPE) {
-                tollgateChannelNodeList.add(resTreeNode);
-            } else {
-                TreeNode pNode = nodeMap.get(resTreeNode.getOrgCode());
-                if (null != pNode) {
-                    if (pNode.getChildren() == null) {
-                        pNode.setChildren(new ArrayList<>());
-                    }
-                    pNode.getChildren().add(resTreeNode);
-                }
-            }
-        }
-        return root;
+     * @return private TreeNode buildTreeNode(List<TreeNode> resTreeNodes, Map<String, TreeNode> nodeMap,
+    List<TreeNode> tollgateChannelNodeList, TreeNode root) {
+    for (TreeNode resTreeNode : resTreeNodes) {
+    if (CheckUtil.isNullOrEmpty(resTreeNode.getOrgCode())) {
+    root = resTreeNode;
+    continue;
+    }
+    if (resTreeNode.getNodeType() == CHANNEL_TREE_NODE_TYPE) {
+    tollgateChannelNodeList.add(resTreeNode);
+    } else {
+    TreeNode pNode = nodeMap.get(resTreeNode.getOrgCode());
+    if (null != pNode) {
+    if (pNode.getChildren() == null) {
+    pNode.setChildren(new ArrayList<>());
+    }
+    pNode.getChildren().add(resTreeNode);
+    }
+    }
+    }
+    return root;
     }
      */
 }

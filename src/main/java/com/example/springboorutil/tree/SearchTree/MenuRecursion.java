@@ -9,6 +9,7 @@ public class MenuRecursion {
 
     /**
      * 获取某个父节点下面的所有子节点
+     *
      * @param MenuTreeList
      * @param pid
      * @return
@@ -34,7 +35,6 @@ public class MenuRecursion {
         }
         return childMenuTree;
     }
-
 
 
     public static void main(String args[]) {

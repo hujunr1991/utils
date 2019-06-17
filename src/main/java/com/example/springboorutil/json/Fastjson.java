@@ -22,42 +22,52 @@ import java.util.Map;
  */
 
 
-class User{
+class User {
     private int id;
     private String name;
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
 }
 
-class Group{
+class Group {
     private int id;
     private String name;
     private List<User> list = new ArrayList<User>();
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public List<User> getList() {
         return list;
     }
+
     public void setList(List<User> list) {
         this.list = list;
     }
@@ -154,7 +164,7 @@ public class Fastjson {
         group.getList().add(user1);
         group.getList().add(user2);
 
-        Map<Integer, Object> map = new HashMap<Integer,Object>();
+        Map<Integer, Object> map = new HashMap<Integer, Object>();
         map.put(1, "No.1");
         map.put(2, "No.2");
         map.put(3, group.getList());
@@ -193,8 +203,8 @@ public class Fastjson {
     /**
      * 一个相对复杂的例子：
      * JSON文本数据：
-     *      首先是JSONObject，转换为JSONArray；
-     *      然后将JSONArray转换为JavaBean
+     * 首先是JSONObject，转换为JSONArray；
+     * 然后将JSONArray转换为JavaBean
      */
     private static void complexExampleM7() {
         String s = "{js:[{id:\"110000\",\"city\":\"北#001京市\"},{id:\"110000\",\"city\":\"北#002京市\"}"
@@ -206,7 +216,7 @@ public class Fastjson {
         JSONObject object = JSON.parseObject(s);
         Object jsonArray = object.get("js");
         System.out.println(jsonArray);
-        List<Weibo> list = JSON.parseArray(jsonArray+"", Weibo.class);
+        List<Weibo> list = JSON.parseArray(jsonArray + "", Weibo.class);
         for (Weibo weibo : list) {
             System.out.println(weibo.getCity());
         }
@@ -252,7 +262,7 @@ public class Fastjson {
         //将JSON文本转换为JSONArray
         JSONArray array = JSON.parseArray(s);
         //这行必须写：必须加上+"";不然会报出类型强转异常！
-        String str = array.get(1)+"";
+        String str = array.get(1) + "";
         System.out.println(array.get(0));
         JSONObject object = JSON.parseObject(str);
         System.out.println(object.get("id"));

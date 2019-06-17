@@ -19,7 +19,7 @@ public class restTets {
 
         // 2、使用postForEntity请求接口
         HttpHeaders headers = new HttpHeaders();
-        HttpEntity<MultiValueMap<String, Object>> httpEntity = new HttpEntity<MultiValueMap<String, Object>>(paramMap,headers);
+        HttpEntity<MultiValueMap<String, Object>> httpEntity = new HttpEntity<MultiValueMap<String, Object>>(paramMap, headers);
         ResponseEntity<String> response2 = template.postForEntity(url, httpEntity, String.class);
         System.out.println("result2====================" + response2.getBody());
 

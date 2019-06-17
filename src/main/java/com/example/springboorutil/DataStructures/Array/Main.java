@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         Array<Integer> arr = new Array<>();
-        for(int i = 0 ; i < 10 ; i ++)
+        for (int i = 0; i < 10; i++)
             arr.addLast(i);
         System.out.println(arr);
 
@@ -24,7 +24,7 @@ public class Main {
         arr.removeFirst();
         System.out.println(arr);
 
-        for(int i = 0 ; i < 4 ; i ++){
+        for (int i = 0; i < 4; i++) {
             arr.removeFirst();
             System.out.println(arr);
         }

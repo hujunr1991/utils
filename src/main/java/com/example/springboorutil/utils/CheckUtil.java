@@ -26,11 +26,11 @@ public class CheckUtil {
         if (pObj == null) {
             return true;
         } else if (pObj instanceof String) {
-            return ((String)pObj).length() == 0;
+            return ((String) pObj).length() == 0;
         } else if (pObj instanceof Collection) {
-            return ((Collection)pObj).isEmpty();
+            return ((Collection) pObj).isEmpty();
         } else if (pObj instanceof Map) {
-            return ((Map)pObj).size() == 0;
+            return ((Map) pObj).size() == 0;
         } else {
             return false;
         }
@@ -40,11 +40,11 @@ public class CheckUtil {
         if (pObj == null) {
             return false;
         } else if (pObj instanceof String) {
-            return ((String)pObj).length() != 0;
+            return ((String) pObj).length() != 0;
         } else if (pObj instanceof Collection) {
-            return !((Collection)pObj).isEmpty();
+            return !((Collection) pObj).isEmpty();
         } else if (pObj instanceof Map) {
-            return ((Map)pObj).size() != 0;
+            return ((Map) pObj).size() != 0;
         } else {
             return true;
         }

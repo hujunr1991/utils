@@ -15,5 +15,6 @@ import java.lang.annotation.Target;
 @Inherited
 public @interface MyAnnotation {
     public String name() default "";
+
     public int age() default 18;
 }
