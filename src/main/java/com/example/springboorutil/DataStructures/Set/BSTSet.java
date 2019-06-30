@@ -1,35 +1,36 @@
 package com.example.springboorutil.DataStructures.Set;
 
+import com.example.springboorutil.DataStructures.BST.BSTtest;
+
 public class BSTSet<E extends Comparable<E>> implements Set<E> {
+    private BSTtest bsTtest;
 
-    private BST<E> bst;
-
-    public BSTSet(){
-        bst = new BST<>();
+    public BSTSet(BSTtest bsTtest) {
+        bsTtest = new BSTtest();
     }
 
     @Override
-    public int getSize(){
-        return bst.size();
+    public void add(E e) {
+        bsTtest.add(e);
     }
 
     @Override
-    public boolean isEmpty(){
-        return bst.isEmpty();
+    public boolean contains(E e) {
+        return bsTtest.contains(e);
     }
 
     @Override
-    public void add(E e){
-        bst.add(e);
+    public void remove(E e) {
+        bsTtest.remove(e);
     }
 
     @Override
-    public boolean contains(E e){
-        return bst.contains(e);
+    public int getSize() {
+        return bsTtest.getSzie();
     }
 
     @Override
-    public void remove(E e){
-        bst.remove(e);
+    public boolean isEmpty() {
+        return bsTtest.isEmpty();
     }
 }
