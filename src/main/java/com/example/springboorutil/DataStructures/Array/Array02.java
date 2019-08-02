@@ -2,57 +2,67 @@ package com.example.springboorutil.DataStructures.Array;
 
 public class Array02<E> {
     private E[] date;
-    private  int size;
-    public Array02(int capacity){
-        date = (E[])new Object[capacity];
+    private int size;
+
+    public Array02(int capacity) {
+        date = (E[]) new Object[capacity];
         size = 0;
     }
-    private Array02(){
-       this(10);
+
+    public Array02(E[] arr) {
+        date = (E[]) new Object[arr.length];
+        for (int i = 0; i < arr.length; i++)
+            date[i] = arr[i];
+        size = arr.length;
     }
 
-    public int getCapacity(){
+
+    public Array02() {
+        this(10);
+    }
+
+    public int getCapacity() {
         return date.length;
     }
 
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
     //添加元素
-    public void add(int index, E a){
+    public void add(int index, E a) {
         if (date.length == size) {
-           resize(2 * date.length);
+            resize(2 * date.length);
         }
 
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed. Require index >= 0 and index <= size.");
         }
 
-        for (int i = size - 1; i >= index ;i--) {
-            date[i+1] = date[i];
+        for (int i = size - 1; i >= index; i--) {
+            date[i + 1] = date[i];
         }
         date[index] = a;
         size++;
     }
 
     private void resize(int capacity) {
-        E[] newData = (E[])new Object[capacity];
-        for (int i = 0;i < size; i++) {
+        E[] newData = (E[]) new Object[capacity];
+        for (int i = 0; i < size; i++) {
             newData[i] = date[i];
         }
         date = newData;
     }
 
-    public void addLast(int size, E a){
+    public void addLast(int size, E a) {
         add(size, a);
     }
 
-    public void addFrist( E a){
+    public void addFrist(E a) {
         add(0, a);
     }
 
@@ -74,8 +84,8 @@ public class Array02<E> {
     }
 
     //判断是否包含元素
-    public boolean contains(E a ) {
-        for(int i = 0; i< size; i++) {
+    public boolean contains(E a) {
+        for (int i = 0; i < size; i++) {
             if (date[i] == a) {
                 return true;
             }
@@ -85,7 +95,7 @@ public class Array02<E> {
 
     //查找元素
     public int find(E a) {
-        for(int i = 0; i< size; i++) {
+        for (int i = 0; i < size; i++) {
             if (date[i] == a) {
                 return i;
             }
@@ -94,17 +104,17 @@ public class Array02<E> {
     }
 
     //依据索引删除元素
-    public void remove(int index ){
+    public void remove(int index) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("ill index, Require index >= 0 and index <= size.");
         }
-        for(int i = index +1; i <size; i++) {
-            date[i-1] = date[i];
+        for (int i = index + 1; i < size; i++) {
+            date[i - 1] = date[i];
         }
         size--;
         //防止复杂度震荡，且date.length不能等于0
-        if (size == date.length/4 && date.length /2 != 0) {
-            resize(date.length/2);
+        if (size == date.length / 4 && date.length / 2 != 0) {
+            resize(date.length / 2);
         }
     }
 
@@ -115,7 +125,7 @@ public class Array02<E> {
 
     //删除最后一个元素
     public void removeLast() {
-        remove(size-1);
+        remove(size - 1);
     }
 
     //删除某个元素
@@ -126,4 +136,20 @@ public class Array02<E> {
         }
     }
 
+    public void swap(int i, int j) {
+
+        if (i < 0 || i >= size || j < 0 || j >= size)
+            throw new IllegalArgumentException("Index is illegal.");
+
+        E t = date[i];
+        date[i] = date[j];
+        date[j] = t;
+    }
+
+    // 修改index索引位置的元素为e
+    public void set(int index, E e){
+        if(index < 0 || index >= size)
+            throw new IllegalArgumentException("Set failed. Index is illegal.");
+        date[index] = e;
+    }
 }

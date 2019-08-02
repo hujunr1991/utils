@@ -18,11 +18,14 @@ import java.util.Map;
  */
 public class JSONObjectSample {
     public static void main(String[] args) {
-        createJsonByMap();
+//        createJsonByMap();
         createJson();
-        createJsonByJavaBean();
+////        createJsonByJavaBean();
     }
 
+    /**
+     * map转json
+     */
     private static void createJsonByMap() {
         Map<String, Object> data = new HashMap<String, Object>();
         data.put("name", "John");

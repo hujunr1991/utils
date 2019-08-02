@@ -2,6 +2,8 @@ package com.example.springboorutil.getPath;
 
 import org.apache.commons.lang.StringUtils;
 
+import java.util.HashMap;
+
 /**
  * @ClassName: PathUtil
  * @Description: 主要是利用了System.getProperty(" user.dir ")获取工程的绝对路径, 然后再做相关操作。
@@ -22,6 +24,7 @@ public class PathUtil {
         } else {
             return PathUtil.class.getResource("/").getFile().toString();
         }
+
     }
 
     /**
