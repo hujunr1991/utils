@@ -16,5 +16,6 @@ public class StrategyPatternDemo {
         context.setStrategy(new OperationSubstract());
 
         System.out.println(context.executeStrategy(15,3));
+
     }
 }
