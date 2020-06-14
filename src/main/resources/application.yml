@@ -1,3 +1,4 @@
+
 server:
   port: 8080
 
@@ -44,4 +45,5 @@ pagehelper:
     supportMethodsArguments: true
     params: count=countSql
     returnPageInfo: check
+debug: true
 
