@@ -1,5 +1,7 @@
 package com.example.springboorutil.base;
 
+import org.springframework.beans.factory.BeanFactory;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -39,6 +41,7 @@ public class CopeTest {
         int[] targetArr = new int[array.length];
         System.arraycopy(array,0,targetArr,0,array.length);
         System.out.println(Arrays.toString(targetArr));
+
 
 
     }

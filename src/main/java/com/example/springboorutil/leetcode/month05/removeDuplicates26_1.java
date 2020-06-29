@@ -1,4 +1,4 @@
-package com.example.springboorutil.leetcode05.day0511;
+package com.example.springboorutil.leetcode.month05;
 
 import java.util.Arrays;
 

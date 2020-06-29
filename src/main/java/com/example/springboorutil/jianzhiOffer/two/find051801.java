@@ -21,6 +21,10 @@ public class find051801 {
         testarray[3][3]=15;
         System.out.println(find(testarray, 7));
 
+        String str = null;
+        String trim = str.trim();
+        System.out.println(trim);
+
     }
 
     private static boolean find(int[][] testarray, int object) {
