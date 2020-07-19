@@ -1,10 +1,14 @@
 package com.example.springboorutil.base;
 
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
+import javax.annotation.Resources;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.concurrent.CountDownLatch;
 
 public class CopeTest {
     public static void main(String[] args) {
@@ -41,7 +45,6 @@ public class CopeTest {
         int[] targetArr = new int[array.length];
         System.arraycopy(array,0,targetArr,0,array.length);
         System.out.println(Arrays.toString(targetArr));
-
 
 
     }

@@ -37,10 +37,18 @@ public class TestList {
 
         // 要被找出的书的ID
         ArrayList<String> ids = new ArrayList<String>();
+        ids.add("1");
+        ids.add("2");
         ids.add("3");
+        ids.add("4");
+        ids.add("5");
         ids.add("6");
+        ids.add("7");
         ids.add("8");
         ids.add("9");
+        ids.add("10");
+        ids.add("11");
+        ids.add("4");
 
         // 存放过滤结果的列表
         List<Book> result = null;
