@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 public class SpringboorutilApplication {
 
     public static void main(String[] args) {

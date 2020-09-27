@@ -45,5 +45,5 @@ pagehelper:
     supportMethodsArguments: true
     params: count=countSql
     returnPageInfo: check
-debug: true
+#debug: true
 
