@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javax.mail.version>1.5.1</javax.mail.version>
         <commons-lang>2.6</commons-lang>
-        <org.apache.poi>3.16</org.apache.poi>
+        <org.apache.poi>5.2.1</org.apache.poi>
         <com.belerweb>2.5.1</com.belerweb>
     </properties>
 
